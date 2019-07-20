@@ -1,0 +1,74 @@
+  
+  
+  <h2  class="container " style=" font-family:serif">Employee List</h2>
+  <!-- <input [(ngModel)]="name"  name="" class="form-control" style="float:left;text-align:left;padding-left:15px ;width:500px; display:inline" type="text" placeholder="Search">
+  <button (click)="search()" style="display:inline" class="btn btn-primary ">Find</button> -->
+
+
+
+
+
+
+  <div class="modal fade"  id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-light bg-dark" style="float:center">
+            <img class="card-img-top" style="width:300px;height:200px;" [src]="url">
+            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+            <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              "Hello!,  My name is {{id.firstName}},<br>My birthdate is {{id.age}},<br> My Hobbies are"{{hobbies}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class= " container table-responsive-sm table-responsive-md table-responsive-lg" style="color: gray">
+      <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th  scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Edit</th>
+            <th scope="col" >Delete</th>
+           
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr    *ngFor="let items of data;index as i"  >
+           
+           
+            <th (click)="clicked(items)" scope="row">
+
+            <img  class="card-img-top" style="width:60px;height:50px;float:center;" src="http://localhost:3000/{{items.profiePic}}">
+              
+            </th>
+            <td (click)="clicked(items) " data-toggle="modal" data-target="#exampleModalCenter1">{{items.firstName}}</td>
+            <td (click)="clicked(items)" data-toggle="modal" data-target="#exampleModalCenter1">{{items.lastName}}</td>
+            <td (click)="clicked(items)" data-toggle="modal" data-target="#exampleModalCenter1">{{items.email}}</td>
+            <td (click)="clicked(items)" data-toggle="modal" data-target="#exampleModalCenter1">{{items.salary}}</td>
+            <td (click)="clicked(items)" data-toggle="modal" data-target="#exampleModalCenter1">{{items.age | date}}</td>
+            <td (click)="clicked(items)" data-toggle="modal" data-target="#exampleModalCenter1">{{items.gender}}</td>
+             
+            <td><a class="btn btn-warning" style="color:white;" (click)="onUpdate(items)">Edit</a></td>
+            <td><a class="btn btn-danger" style="border-radius: 55px;color:white;" (click)="onDelete(items._id)"><b>X</b></a></td>
+
+          </tr>
+            </tbody>
+      </table>
+    </div>
+    

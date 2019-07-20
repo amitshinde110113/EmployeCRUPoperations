@@ -1,0 +1,365 @@
+<!--
+<div class="container divimg formdiv" style="overflow-y: scroll;" >
+    {{user.value.isCooking}}
+        <div class="container divimg2 " >
+          <div class="container-fluid ScrollStyle" style="text-align: center;font:'red-Serif'; "><label>Employee Details</label></div>
+          <div style="text-align: center; color:green" *ngIf="msg" >
+              <span style="font-size:15px;">Created Sucessfully</span>
+            </div>
+          <form [formGroup]="user"  class="smooth-scroll ">
+             
+
+              <div class="form-group">
+                  <img [src]="url" height="150px" width="150px" style="display: inline">
+                
+    
+                <input id="my-input" style="display: inline ;" fromControlName="profiePic" (change)="onFleLoad($event)" class="form-control" type="file" name="" accept="image/*">
+              </div>
+  
+            <div class="form-group "  >
+              <label>First Name</label>
+              <input formControlName="firstName" class="form-control" type="text" name=""
+              [class.is-invalid]="user.get('firstName').invalid && user.get('firstName').touched" >
+            </div>
+      
+            <div class="form-group">
+              <label>Last Name</label>
+              <input formControlName="lastName" class="form-control" type="text" name=""
+              [class.is-invalid]="user.get('lastName').invalid && user.get('lastName').touched" >
+              
+              
+            </div>
+      
+            <div class="form-group">
+              <label>Email</label>
+              <input formControlName="email" class="form-control" type="text" name=""
+              [class.is-invalid]="user.get('email').invalid && user.get('email').touched" >
+              
+              
+            </div>
+            <div class="form-group">
+              <label>Salary</label>
+              <input formControlName="salary" class="form-control" type="number" name=""
+              [class.is-invalid]="user.get('salary').invalid && user.get('salary').touched" >
+              
+            </div>
+            <div id="checkbox" class="form-group">
+              <label for="my-input" style="margin-right: 10px">Birthdate</label>
+              <input style="width:200px;display: inline"  #datepickerYMD="bsDatepicker" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" bsDatepicker value="{{bdate}}" formControlName="bdate"   class="form-control" type="text" >
+        
+
+              <label style="margin-left: 50px">Age</label>
+              <input disabled formControlName="age" class="form-control" type="number" id="age" name=""
+              [class.is-invalid]="user.get('age').invalid && user.get('age').touched" style="display:inline;width:200px;float:right ;" >
+              
+            
+              <!-- pattern="[0-1]{1}[0-9]{0,2}" 
+            <br>
+            
+            <div class="form-group " style="display:inline;margin-top:10px;" >
+                <label for="sel1">State:</label>
+                <select formControlName="state" (change)="onChangeState($event.target.value )" class="form-control" id="sel1" style="width: 180px;display:inline;" >
+                    <option value="" selected disabled hidden>Select State</option>
+                  <option    *ngFor="let state of states" >{{state.name}}</option>
+                  </select>
+                 
+                  <label for="sel1">Cities:</label>
+                <select formControlName="city" class="form-control" id="sel1" style="width: 180px;display:inline;" >
+                  <option value="" selected disabled hidden>Select City</option>
+                  <option  value="{{city}}" *ngFor="let city of cities" >{{city}}</option>
+                  </select>
+                 
+                  <label> Pin:</label>
+                  <input  id="sel1" style="display: inline;width:100px;float:right ;" formControlName="pin" class="form-control" type="number" name=""
+                  [class.is-invalid]="user.get('pin').invalid && user.get('pin').touched">
+              </div >
+             
+              
+              <div class="form-group row">
+                  <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Address</label>
+                  <div class="col-md-6">
+                      <textarea type="text" rows="3"  formControlName="address" id="nid_number" class="form-control" name="nid-number"></textarea>
+                  </div>
+              </div>
+
+
+              <div class="form-group row">
+                  <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Skills</label>
+                  <div class="col-md-6">
+                    <tag-input formControlName="skills"   ></tag-input>
+                    <small style="color:red" *ngIf="user.get('skills').invalid && user.get('skills').touched" >Minimum 2 skills are Required</small>
+                    
+                  </div>
+              </div>
+
+            <div class="radio">
+              <label><input type="radio" value="Male" formControlName="gender"   >Male</label>
+              
+              <label class="Radio2"><input type="radio" value="Female" formControlName="gender">Female</label>
+              <div style="float:right"  >
+              <label for="sel1">Qualification:</label>
+              <select class="form-control" formControlName="education" style="width: 200px;display:inline;" >
+                  <option value="" selected disabled hidden>Select Education</option>
+                <option  *ngFor="let education of educations" >{{education}}</option>
+                
+              </select>
+            </div>
+            </div>
+           Age
+           Age
+              <div class="form-check form-check-inline" >
+              
+                <label formArrayName="orders" *ngFor="let order of user.controls.orders.controls; let i = index" for="my-input" class="form-check-label hobbies">
+                <input type="checkbox" (change)="onCheckBoxCheck(i)"   [formControlName]="i">{{orders[i].name}}</label>
+               <small style="margin-left:20px" *ngIf="hobbiesError" [class.text-danger]="hobbiesError" >Please select atleast two hobbies</small>
+
+              </div>
+
+           
+              
+              
+            </div>
+            
+          </form>
+          <br>
+          <div calss="container">
+          
+          <div calss="container btnc" >
+            <button  id="b1"   (click)="onPrevious()" class="btn btn-warning " type="button">Back</button>
+          
+            <button id="b1" [disabled]="!user.valid"  (click)="onUpdate()" class="btn btn-info " type="button">Update</button>
+            
+        
+          
+          </div>
+      
+         
+        </div>
+      -->
+      
+        <main class="my-form">
+            <div class="cotainer  ">
+                <div class="row justify-content-center">
+                    <div class="bg-secondary col-md-8">
+                            <div class="card">
+                                <div class=" card-header dark">Edit Employee Details</div>
+                                <div class="card-body">
+                                    <form name="my-form" [formGroup]="user">
+        
+                                         <div class="form-group row">
+                                                    <label for="full_name" class="col-md-4 col-form-label text-md-right"></label>
+                                                    <ngx-avatar [src]="url" size='150' [round]="true"></ngx-avatar>
+
+                                                    <div class="col-md-3">
+                                                    </div>
+                                                    <div class="col-md-3 text-md-right">
+                                                            <!-- <img  [src]="url" height="100px" width="100px" > -->
+                                                    </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Avatar</label>
+                                                <div class="col-md-6">
+                                                    <input type="File" id="full_name" (change)="onFleLoad($event)" class="form-control" fromControlName="profiePic" name="full-name" accept="image/*">
+                                                </div>
+                                    </div>
+        
+                                        <div class="form-group row">
+                                          <label for="full_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                          <div class="col-md-6" >
+                                              <input type="text" (blur)="validaiteService.validatioErrors(user)" class="form-control"  formControlName="firstName">
+                                             
+                                            
+                                        <small class="help-block" *ngIf="formErrors.firstName" [class.text-danger]="formErrors.firstName" >
+                                                    {{formErrors.firstName}}
+                                        </small>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label  class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                      <div class="col-md-6">
+                                          <input type="text" (blur)="validaiteService.validatioErrors(user)"  class="form-control"  formControlName="lastName">
+                                         
+                                          <small class="help-block" *ngIf="formErrors.firstName" [class.text-danger]="formErrors.lastName" >
+                                            {{formErrors.lastName}}
+                                </small>
+                                      </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                          <label  class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                          <div class="col-md-6">
+                                              <input type="text" formControlName="email" (blur)="validaiteService.validatioErrors(user)" class="form-control" >
+                                             
+                                              <small class="help-block" *ngIf="formErrors.email" [class.text-danger]="formErrors.email" >
+                                                {{formErrors.email}}
+                                                </small>
+                                          </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                          <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                          <div class="col-md-6">
+                                              <input type="text" mask="000-000-0000" (blur)="validaiteService.validatioErrors(user)" formControlName="contactNumber"  class="form-control">
+                                              
+                                              <small class="help-block" *ngIf="formErrors.contactNumber" [class.text-danger]="formErrors.contactNumber" >
+                                                {{formErrors.contactNumber}}
+                                                </small>
+                                            
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                                <label  class="col-md-4 col-form-label text-md-right">Birth Date</label>
+                                                <div class="col-md-6">
+                                                    <input  formControlName="bdate" #datepickerYMD="bsDatepicker" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" (change)="getDate()" type="text" bsDatepicker class="form-control" >
+                                                    <small class="help-block" *ngIf="formErrors.bdate" [class.text-danger]="formErrors.bdate" >
+                                                      {{formErrors.bdate}}
+                                                      </small>
+                                                </div>
+                                            </div>
+        
+                                        <div class="form-group row">
+                                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Salary</label>
+                                            <div class="col-md-6">
+                                                <input type="text" formControlName="salary"  currencyMask  [options]="{ prefix: '&#8377; ', thousands: ',' }" id="user_name" class="form-control" name="username"                                        
+                                                [class.is-invalid]="user.get('salary').invalid && user.get('salary').touched" > 
+                                                <small style="color:red" *ngIf="user.get('salary').invalid && user.get('salary').touched" >Salary is Required</small>
+        
+                                            </div>
+                                        </div>
+        
+                                        
+                                        <div class="form-group row">
+                                                <label for="present_address" class="col-md-4 col-form-label text-md-right">Qualification</label>
+                                                <div class="col-md-6">
+                                                    <select type="select" formControlName="education" id="present_address" class="form-control"
+                                                    [class.is-invalid]="user.get('education').invalid && user.get('education').touched" >
+                                                    <option value="" selected disabled hidden>Select Educaton</option>
+                                                  <option  *ngFor="let education of educations" >{{education}}</option>
+                                                
+                                                </select>
+                                                <small class="help-block" *ngIf="formErrors.education" [class.text-danger]="formErrors.education" >
+                                                  {{formErrors.education}}
+                                                  </small>
+                                                </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="present_address" class="col-md-4 col-form-label text-md-right">State</label>
+                                            <div class="col-md-6">
+                                                <select (blur)="validaiteService.validatioErrors(user)" type="select" formControlName="state" (change)="onChangeState($event.target.value)" class="form-control">
+                                             
+                                                <option value="" selected disabled hidden>Select State</option>
+                                              <option    *ngFor="let state of states" >{{state.name}}</option>
+                                              </select>
+                                              <small class="help-block" *ngIf="formErrors.state" [class.text-danger]="formErrors.state" >
+                                                {{formErrors.state}}
+                                                </small>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="permanent_address" class="col-md-4 col-form-label text-md-right">City</label>
+                                            <div class="col-md-6">
+                                                <select (blur)="validaiteService.validatioErrors(user)" type="select" formControlName="city"  class="form-control" >
+                                               
+                                                <option value="" selected disabled hidden>Select City</option>
+                                                <option  *ngFor="let city of cities" >{{city}}</option>
+                                                </select>
+                                                <small class="help-block" *ngIf="formErrors.city" [class.text-danger]="formErrors.city" >
+                                            {{formErrors.city}}
+                                            </small>
+        
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                                <label  class="col-md-4 col-form-label text-md-right"> Pin</label>
+                                                <div class="col-md-6">
+                                                    <input (blur)="validaiteService.validatioErrors(user)" type="text" mask="000-000"  formControlName="pin" class="form-control" >
+                                                    <small class="help-block" *ngIf="formErrors.pin" [class.text-danger]="formErrors.pin" >
+                                                      {{formErrors.pin}}
+                                                      </small>
+                                                </div>
+                                            </div>
+        
+                                        <div class="form-group row">
+                                            <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Address</label>
+                                            <div class="col-md-6">
+                                                <textarea (blur)="validaiteService.validatioErrors(user)" type="text" rows="3"  formControlName="address" id="nid_number" class="form-control" name="nid-number"></textarea>
+                                                <small class="help-block" *ngIf="formErrors.address" [class.text-danger]="formErrors.address" >
+                                                  {{formErrors.address}}
+                                                  </small>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                            <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Gender</label>
+                                            <div class="col-md-6">
+                                                <div class="row form-group">
+                                                        <label for="nid_number"  class="col-md-3 col-form-label  text-md-right"> Male</label>
+                                                
+                                                        <input type="radio" value="Male"  formControlName="gender" class="form-control col-sm-2" >
+        
+                                                <label  class="col-md-3 col-form-label text-md-right"> Female</label>
+                                                <input type="radio" value="Female" formControlName="gender"  class="form-control col-md-2">
+        
+        
+                                                </div>
+                                           
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group row">
+                                          <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Skills</label>
+                                          <div class="col-md-6">
+                                            <tag-input  formControlName="skills"   ></tag-input>
+                                            <small style="color:red" *ngIf="user.get('skills').invalid && user.get('skills').touched" >Minimum 2 skills are Required</small>
+                                            
+                                          </div>
+                                      </div>
+      
+      
+                                        
+      
+        
+                                        <div class="form-group row">
+                                                <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Hobbies</label>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+        
+                                                       
+                                                               
+                                                      <label for="my-input" class="col-md-3 col-form-label text-md-left" formArrayName="orders" *ngFor="let order of user.controls.orders.controls; let i = index" >
+                                                        <input class="form-control col-md-2" type="checkbox" (change)="validaiteService.onCheckBoxCheck(i,user)" [formControlName]="i">{{orders[i].name}}</label>
+                                                         <small style="margin-left:20px" *ngIf="validaiteService.hobbiesError" [class.text-danger]="validaiteService.hobbiesError" >Please select atleast two hobbies</small>
+                                                         
+                                                           
+        
+                                                    
+                                                    
+                                                    
+                                               
+                                                    
+                                                </div>
+                                            </div>
+            
+        
+                                            <div class="col-md-6 offset-md-4">
+                                                <button  id="b1"   (click)="onPrevious()" class="btn btn-warning " type="button">Back</button>
+          
+                                                <button id="b1" [disabled]="!user.valid"  (click)="onUpdate()" class="btn btn-info " type="button">Update</button>
+                                                 
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        
+        </main>
+        

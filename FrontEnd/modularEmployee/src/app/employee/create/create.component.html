@@ -1,0 +1,225 @@
+
+  <main class="my-form">
+      <div class="cotainer">
+          <div class="row justify-content-center">
+              <div class="col-md-8">
+                      <div class="card">
+                          <div class="card-header dark">Register Employee</div>
+                          <div class="card-body">
+                              <form name="my-form" [formGroup]="user">
+                                {{user.valid | json}}
+                                   <div class="form-group row">
+                                              <label for="full_name" class="col-md-4 col-form-label text-md-right"></label>
+                                              <div class="col-md-3">
+                                              </div>
+                                              <div class="col-md-3 text-md-right">
+                                                  <ngx-avatar [src]="url" size='150' [round]="true"></ngx-avatar>
+                                                      <!-- <img  [src]="url" height="100px" width="100px" > -->
+                                              </div>
+                                  </div>
+                                  <div class="form-group row">
+                                          <label for="full_name" class="col-md-4 col-form-label text-md-right">Avatar</label>
+                                          <div class="col-md-6">
+                                              <input type="File" id="full_name" (change)="onFleLoad($event)" class="form-control" fromControlName="profiePic" name="full-name" accept="image/*">
+                                          </div>
+                              </div>
+  
+                                  <div class="form-group row" >
+                                      <label for="full_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                      <div class="col-md-6" >
+                                          <input type="text" (blur)="validaiteService.validatioErrors(user)" class="form-control"  formControlName="firstName">
+                                         
+                                        
+                                    <small class="help-block" *ngIf="formErrors.firstName" [class.text-danger]="formErrors.firstName" >
+                                                {{formErrors.firstName}}
+                                    </small>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label  class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                      <div class="col-md-6">
+                                          <input type="text" (blur)="validaiteService.validatioErrors(user)"  class="form-control"  formControlName="lastName">
+                                         
+                                          <small class="help-block" *ngIf="formErrors.firstName" [class.text-danger]="formErrors.lastName" >
+                                            {{formErrors.lastName}}
+                                </small>
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                      <label  class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                      <div class="col-md-6">
+                                          <input type="text" formControlName="email" (blur)="validaiteService.validatioErrors(user)" class="form-control" >
+                                         
+                                          <small class="help-block" *ngIf="formErrors.email" [class.text-danger]="formErrors.email" >
+                                            {{formErrors.email}}
+                                            </small>
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                      <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                      <div class="col-md-6">
+                                          <input type="text" mask="000-000-0000" (blur)="validaiteService.validatioErrors(user)" formControlName="contactNumber"  class="form-control">
+                                          
+                                          <small class="help-block" *ngIf="formErrors.contactNumber" [class.text-danger]="formErrors.contactNumber" >
+                                            {{formErrors.contactNumber}}
+                                            </small>
+                                        
+                                        </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                          <label  class="col-md-4 col-form-label text-md-right">Birth Date</label>
+                                          <div class="col-md-6">
+                                              <input  formControlName="bdate" (blur)="validaiteService.validatioErrors(user)" placeholder="Select Birth Date" #datepickerYMD="bsDatepicker" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" (change)="getDate()" type="text" bsDatepicker class="form-control" >
+                                              <small class="help-block" *ngIf="formErrors.bdate" [class.text-danger]="formErrors.bdate" >
+                                                {{formErrors.bdate}}
+                                                </small>
+                                            </div>
+                                          
+                                      </div>
+  
+                                  <div class="form-group row">
+                                      <label class="col-md-4 col-form-label text-md-right">Salary</label>
+                                      <div class="col-md-6">
+                                          <input type="text" formControlName="salary" (blur)="validaiteService.validatioErrors(user)" currencyMask  [options]="{ prefix: '&#8377; ', thousands: ',' }"  class="form-control" >                                    
+                                          <small class="help-block" *ngIf="formErrors.salary" [class.text-danger]="formErrors.salary" >
+                                            {{formErrors.salary}}
+                                            </small>
+                                      </div>
+                                  </div>
+  
+                                  
+                                  <div class="form-group row">
+                                          <label for="present_address" class="col-md-4 col-form-label text-md-right">Qualification</label>
+                                          <div class="col-md-6">
+                                              <select type="select" (blur)="validaiteService.validatioErrors(user)" formControlName="education" id="present_address" class="form-control">
+                                          
+                                              <option value="" selected disabled hidden>Select Educaton</option>
+                                            <option  *ngFor="let education of educations" >{{education}}</option>
+                                          
+                                          </select>
+                                          <small class="help-block" *ngIf="formErrors.education" [class.text-danger]="formErrors.education" >
+                                            {{formErrors.education}}
+                                            </small>
+                                          </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                      <label  class="col-md-4 col-form-label text-md-right">State</label>
+                                      <div class="col-md-6">
+                                          <select type="select" (blur)="validaiteService.validatioErrors(user)" formControlName="state" (change)="onChangeState($event.target.value)" class="form-control">
+                                          
+                                          <option value="" selected disabled hidden>Select State</option>
+                                        <option    *ngFor="let state of states" >{{state.name}}</option>
+                                        </select>
+                                        <small class="help-block" *ngIf="formErrors.state" [class.text-danger]="formErrors.state" >
+                                            {{formErrors.state}}
+                                            </small>
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                      <label for="permanent_address" class="col-md-4 col-form-label text-md-right">City</label>
+                                      <div class="col-md-6">
+                                          <select type="select" (blur)="validaiteService.validatioErrors(user)" formControlName="city"  class="form-control"> 
+                                          
+                                          <option value="" selected disabled hidden>Select City</option>
+                                          <option  *ngFor="let city of cities" >{{city}}</option>
+                                          </select>
+                                          <small class="help-block" *ngIf="formErrors.city" [class.text-danger]="formErrors.city" >
+                                            {{formErrors.city}}
+                                            </small>
+  
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group row" >
+                                          <label  class="col-md-4 col-form-label text-md-right"> Zip Code</label>
+                                          <div class="col-md-6">
+                                              <input type="text" (blur)="validaiteService.validatioErrors(user)" placeholder="Enter Zip Code"  mask="000-000" formControlName="pin" class="form-control"> 
+                                              <small class="help-block" *ngIf="formErrors.pin" [class.text-danger]="formErrors.pin" >
+                                                {{formErrors.pin}}
+                                                </small>
+                                          </div>
+                                      </div>
+  
+                                  <div class="form-group row">
+                                      <label class="col-md-4 col-form-label text-md-right"> Address</label>
+                                      <div class="col-md-6">
+                                          <textarea type="" rows="3" (blur)="validaiteService.validatioErrors(user)" formControlName="address"  class="form-control" ></textarea>
+                                          <small class="help-block" *ngIf="formErrors.address" [class.text-danger]="formErrors.address" >
+                                            {{formErrors.address}}
+                                            </small>
+                                        </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                      <label  class="col-md-4 col-form-label text-md-right"> Gender</label>
+                                      <div class="col-md-6">
+                                          <div class="row form-group">
+                                                  <label   class="col-md-3 col-form-label  text-md-right"> Male</label>
+                                          
+                                                  <input type="radio" value="Male"  formControlName="gender" class="form-control col-sm-2" >
+  
+                                          <label  class="col-md-3 col-form-label text-md-right"> Female</label>
+                                          <input type="radio" value="Female" formControlName="gender"  class="form-control col-md-2">
+  
+  
+                                          </div>
+                                     
+                                          
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group row">
+                                    <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Skills</label>
+                                    <div class="col-md-6">
+                                      <tag-input  formControlName="skills"></tag-input>
+                                      <small style="color:red" *ngIf="user.get('skills').invalid && user.get('skills').touched" >Minimum 2 skills are Required</small>
+                                      
+                                    </div>
+                                </div>
+
+
+                                  
+
+  
+                                  <div class="form-group row">
+                                          <label for="nid_number" class="col-md-4 col-form-label text-md-right"> Hobbies</label>
+                                          <div class="col-md-7">
+                                              <div class="row">
+  
+                                                 
+                                                         
+                                                          <label for="my-input" class="col-md-3 col-form-label text-md-left" formArrayName="orders" *ngFor="let order of user.controls.orders.controls; let i = index" >
+                                                         <input class="form-control col-md-2" type="checkbox" (change)="validaiteService.onCheckBoxCheck(i,user)" [formControlName]="i">{{orders[i].name}}</label>
+                                                          <small style="margin-left:20px" *ngIf="validaiteService.hobbiesError" [class.text-danger]="validaiteService.hobbiesError" >Please select atleast two hobbies</small>
+                                                            
+                                                     
+  
+                                              
+                                              
+                                              
+                                         
+                                              
+                                          </div>
+                                      </div>
+      
+                                            {{hobbiesError}}
+                                      <div class="col-md-6 offset-md-4">
+                                              <button id="b1"  (click)="onCreate()" [disabled]="!user.valid " class="btn btn-success " type="button">Create</button>
+                                              <button id="b1"   (click)="onPrevious()" class="btn btn-info " type="button">Back</button>
+                                              
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+  
+  </main>
+  

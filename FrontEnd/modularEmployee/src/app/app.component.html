@@ -1,0 +1,114 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container main">
+ <div>
+
+    <h1 style="text-align:center">
+      Welcome to Employee service Portal!
+    </h1>
+
+
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark  bg-dark navbar-laravel">
+      <div class="container">
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link customLink" routerLink="../employee">List</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link customLink"routerLink="../employee/create">Create</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link customLink" (click)="openModal(template)" >QuickAdd</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link customLink" *ngIf="!authService.isloggedIn()" routerLink="../auth">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link customLink" *ngIf="!authService.isloggedIn()" routerLink="../auth/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link customLink" *ngIf="authService.isloggedIn()" (click)="authService.logout()" routerLink="">Logout</a>
+          </li>
+           
+        </ul>
+
+      </div>
+      </div>
+  </nav>
+
+ 
+<ng-template #template>
+  <div class="modal-header bg-dark">
+    <h4 class="modal-title pull-left text-light">Quick Add</h4>
+    <button type="button" class="close pull-right text-light" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+
+
+    <form  [formGroup]="user1" >
+          
+        
+      <div class="form-group">
+        <label  >First Name</label>
+        <input id="my-input" formControlName="firstName1"  class="form-control" type="text" name=""
+        [class.is-invalid]="user1.get('firstName1').invalid && user1.get('firstName1').touched" >
+            <small style="color:red" *ngIf="user1.get('firstName1').invalid && user1.get('firstName1').touched" >First Name is Required</small>
+      </div>
+
+      <div class="form-group">
+        <label  >Last Name</label>
+        <input id="my-input" formControlName="lastName1"  class="form-control" type="text" name=""
+        [class.is-invalid]="user1.get('lastName1').invalid && user1.get('lastName1').touched" >
+            <small style="color:red" *ngIf="user1.get('lastName1').invalid && user1.get('lastName1').touched" >First Name is Required</small>
+      </div>
+      <div class="form-group">
+        <label for="my-input" >Email</label>
+        <input id="my-input" class="form-control" formControlName="email1"  type="text" name=""
+        [class.is-invalid]="user1.get('email1').invalid && user1.get('email1').touched" >
+            <small style="color:red" *ngIf="user1.get('email1').invalid && user1.get('email1').touched" >Email Name is Required</small>
+     
+      </div>
+     
+      <div class="btn-group " >
+        <label class="btn btn-primary">
+          <input type="radio" value="Male" formControlName="gender1"> Male
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" value="Female" formControlName="gender1"> Female
+          </label>
+      </div>
+      <div class="form-group">
+        <button type="button" (click)="modalRef.hide()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button"  (click)="onSave()" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+
+    
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+</div>
+
+<router-outlet></router-outlet>
