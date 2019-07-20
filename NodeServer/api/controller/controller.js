@@ -73,8 +73,8 @@ exports.forgertPassword=(req,res,next)=>{
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'amitshinde110113@gmail.com',
-    pass: '8975139966'
+    user: 'Enter Your Email',
+    pass: 'Enter Your Password'
   },
   address:              'smtp.gmail.com',
   port:                 587,
@@ -82,7 +82,7 @@ var transporter = nodemailer.createTransport({
 
 
 var mailOptions = {
-  from: 'amitshinde110113@gmail.com',
+  from: 'Enter Your Email',
   to: result[0].email,
   subject: 'Password Reset',
   text: 'Reset Your password by following this link!'+path+'/'+encrypted
